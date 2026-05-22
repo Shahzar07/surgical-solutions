@@ -14,8 +14,17 @@ export function Header() {
           <a href="#shop">Shop</a>
         </nav>
 
-        <a className="brand" href="#" aria-label="Surgical Solutions home">
-          <span className="dot" />surgical&nbsp;solutions
+        <a className="brand brand-video" href="#" aria-label="Surgical Solutions home">
+          <video
+            className="brand-video-el"
+            src="/logo.mp4"
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="auto"
+            aria-hidden="true"
+          />
         </a>
 
         <div className="hdr-right">
