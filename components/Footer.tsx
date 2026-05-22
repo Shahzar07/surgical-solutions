@@ -5,7 +5,7 @@ export function Footer() {
         <div className="foot-brand-col">
           <div className="foot-brand-video" aria-label="Surgical Solutions">
             <video
-              src="/logo.mp4"
+              src="/logo.webm"
               autoPlay
               loop
               muted
