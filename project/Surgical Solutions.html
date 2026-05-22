@@ -1,0 +1,450 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Surgical Solutions — Specialists in Surgical Instruments</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Instrument+Serif:ital@0;1&display=swap" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<!-- ── Announcement ticker ─────────────────────────────────────────────── -->
+<div class="bar" aria-label="Announcements">
+  <div class="bar-track">
+    <span>Free P&amp;P on UK orders over £100&nbsp;&nbsp;</span>
+    <span>NHS &amp; framework supplier&nbsp;&nbsp;</span>
+    <span>Same-day dispatch before 14:00&nbsp;&nbsp;</span>
+    <span>ISO 13485 certified&nbsp;&nbsp;</span>
+    <span>Bespoke instrument design available&nbsp;&nbsp;</span>
+    <!-- duplicate for seamless loop -->
+    <span>Free P&amp;P on UK orders over £100&nbsp;&nbsp;</span>
+    <span>NHS &amp; framework supplier&nbsp;&nbsp;</span>
+    <span>Same-day dispatch before 14:00&nbsp;&nbsp;</span>
+    <span>ISO 13485 certified&nbsp;&nbsp;</span>
+    <span>Bespoke instrument design available&nbsp;&nbsp;</span>
+  </div>
+</div>
+
+<!-- ── Header ──────────────────────────────────────────────────────────── -->
+<header class="hdr" data-screen-label="Header">
+  <div class="hdr-inner">
+    <nav class="hdr-nav">
+      <a href="#catalogue" class="has-caret">Catalogue</a>
+      <a href="#packs">Procedure Packs</a>
+      <a href="#shop">Shop</a>
+    </nav>
+
+    <a class="brand" href="#" aria-label="Surgical Solutions home">
+      <span class="dot"></span>surgical&nbsp;solutions
+    </a>
+
+    <div class="hdr-right">
+      <button class="cart-pill" id="open-cart" aria-label="Open cart">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6h15l-1.5 9h-12z"/><circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/><path d="M6 6 4 2H2"/></svg>
+        Cart <span class="count" id="cart-count">0</span>
+      </button>
+      <button class="iconbtn" aria-label="Menu">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ── Hero ────────────────────────────────────────────────────────────── -->
+<section class="hero" data-screen-label="Hero">
+  <div class="wrap">
+    <div class="hero-grid">
+
+      <div class="hero-circle left">
+        <img alt="Surgeon portrait"
+          src="https://images.unsplash.com/photo-1612531386530-97286d97c2d2?w=700&q=80&auto=format&fit=crop"
+          onerror="this.style.display='none'" />
+      </div>
+
+      <div class="hero-center">
+        <h1 class="display">
+          Precision Tools for<br/>
+          Every&nbsp;Procedure,<br/>
+          Every Theatre.
+        </h1>
+        <p class="hero-sub">
+          For 20&nbsp;years we've supplied UK hospitals, surgeries and independents with single-use instruments, bespoke procedure packs and theatre consumables — built to clinical spec and delivered on time.
+        </p>
+        <div class="hero-cta">
+          <a href="#shop" class="btn btn-primary">Shop the Catalogue</a>
+          <a href="#bespoke" class="btn-link">Request a Bespoke Pack →</a>
+        </div>
+      </div>
+
+      <div class="hero-circle right">
+        <img alt="Surgical instruments close-up"
+          src="https://images.unsplash.com/photo-1579154204601-01588f351e67?w=700&q=80&auto=format&fit=crop"
+          onerror="this.style.display='none'" />
+      </div>
+    </div>
+
+    <div class="hero-watermark" aria-hidden="true">surgical&nbsp;solutions</div>
+  </div>
+</section>
+
+<!-- ── Trust strip ─────────────────────────────────────────────────────── -->
+<div class="wrap">
+  <div class="trust">
+    <span>Trusted across the UK by</span>
+    <div class="trust-logos">
+      <span>NHS&nbsp;Trusts</span>
+      <span>BUPA</span>
+      <span>Nuffield&nbsp;Health</span>
+      <span>HCA&nbsp;Healthcare</span>
+      <span>Spire</span>
+      <span>The&nbsp;London&nbsp;Clinic</span>
+    </div>
+  </div>
+</div>
+
+<!-- ── Editorial slab (Pureleaf "Redefining Beauty" parallel) ──────────── -->
+<div class="wrap">
+  <section class="slab" data-screen-label="About slab">
+    <p class="eyebrow">Est. 2005 · Slough, UK</p>
+    <h2 class="display">
+      Quality Instruments<br/>
+      for the Moments<br/>
+      That&nbsp;Matter Most.
+    </h2>
+    <p class="lede">
+      Every blade, forcep and pack we ship has been specified, sourced and inspected with one job in mind — to perform exactly when it counts. We're a small UK team obsessed with consistency, traceability and the unglamorous logistics that keep your list running.
+    </p>
+    <a href="#about" class="btn btn-primary">About Surgical Solutions</a>
+
+    <div class="slab-meta">
+      <div class="stat"><strong>20+</strong><span>Years Supplying</span></div>
+      <div class="stat"><strong>800+</strong><span>UK Clinics Served</span></div>
+      <div class="stat"><strong>14:00</strong><span>Same-day Cut-off</span></div>
+      <div class="stat"><strong>ISO 13485</strong><span>Certified Quality</span></div>
+    </div>
+  </section>
+</div>
+
+<!-- ── Categories (Our Expertise) ──────────────────────────────────────── -->
+<section class="section" data-screen-label="Categories">
+  <div class="wrap">
+    <div class="shead">
+      <div>
+        <p class="eyebrow">Our Catalogue</p>
+        <h2 class="display">Built for Your Theatre.</h2>
+      </div>
+      <a href="#shop" class="btn btn-ghost">See All Products</a>
+    </div>
+
+    <div class="cats">
+
+      <a class="cat" href="#packs">
+        <img class="photo" alt="Procedure Packs"
+          src="https://images.unsplash.com/photo-1581595220892-b0739db3ba8c?w=900&q=80&auto=format&fit=crop"
+          onerror="this.style.display='none'" />
+        <span class="meta">01 · Bespoke &amp; Standard</span>
+        <span class="label">Procedure Packs
+          <span class="arrow">→</span>
+        </span>
+      </a>
+
+      <a class="cat" href="#shop">
+        <img class="photo" alt="Single Use Instruments"
+          src="https://images.unsplash.com/photo-1582719471384-894fbb16e074?w=900&q=80&auto=format&fit=crop"
+          onerror="this.style.display='none'" />
+        <span class="meta">02 · Sterile, Single Patient</span>
+        <span class="label">Single Use Instruments
+          <span class="arrow">→</span>
+        </span>
+      </a>
+
+      <a class="cat" href="#shop">
+        <img class="photo" alt="Theatre Consumables"
+          src="https://images.unsplash.com/photo-1583912086096-8c60d75a53f9?w=900&q=80&auto=format&fit=crop"
+          onerror="this.style.display='none'" />
+        <span class="meta">03 · Online Shop</span>
+        <span class="label">Theatre Consumables
+          <span class="arrow">→</span>
+        </span>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── Featured products grid ──────────────────────────────────────────── -->
+<section class="section" id="shop" data-screen-label="Products">
+  <div class="wrap">
+    <div class="shead">
+      <div>
+        <p class="eyebrow">Best Sellers</p>
+        <h2 class="display">Ready to Ship.</h2>
+      </div>
+      <div style="display:flex; gap:8px; align-items:center;">
+        <button class="filter-chip is-active">All</button>
+        <button class="filter-chip">Singles</button>
+        <button class="filter-chip">Packs</button>
+        <button class="filter-chip">Consumables</button>
+      </div>
+    </div>
+
+    <div class="prod-grid" id="prod-grid"><!-- injected by products.js --></div>
+
+    <div style="text-align:center; margin-top:48px;">
+      <a href="#shop" class="btn btn-ghost">View Full Catalogue (240+ products)</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── Transformations / Bespoke (Pureleaf "See the Transformations") ──── -->
+<section class="section" id="bespoke" data-screen-label="Bespoke">
+  <div class="wrap">
+    <div class="xform">
+      <div class="xform-left">
+        <p class="eyebrow">Bespoke Design</p>
+        <h2 class="display">See the Procedure Packs in&nbsp;Action.</h2>
+        <p class="lede">
+          A library of custom packs we've engineered with surgeons across Dermatology, ENT and General Surgery — every component picked, every tray laid out for the way you actually work.
+        </p>
+        <a href="#bespoke-form" class="btn btn-primary">Request a Pack</a>
+        <div class="ctrl">
+          <button class="iconbtn is-ghost" aria-label="Previous"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg></button>
+          <button class="iconbtn is-ghost" aria-label="Next"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></button>
+        </div>
+      </div>
+
+      <div class="xform-right">
+        <div class="xform-card">
+          <img alt="Dermatology pack"
+            src="https://images.unsplash.com/photo-1559757175-5700dde675bc?w=800&q=80&auto=format&fit=crop"
+            onerror="this.style.display='none'" />
+          <span class="ba">Dermatology Pack</span>
+        </div>
+        <div class="xform-card">
+          <img alt="ENT examination"
+            src="https://images.unsplash.com/photo-1666214280391-8ff5bd3c0bf0?w=800&q=80&auto=format&fit=crop"
+            onerror="this.style.display='none'" />
+          <span class="ba">ENT Examination</span>
+        </div>
+        <div class="xform-card">
+          <img alt="Minor surgery"
+            src="https://images.unsplash.com/photo-1581595220892-b0739db3ba8c?w=800&q=80&auto=format&fit=crop"
+            onerror="this.style.display='none'" />
+          <span class="ba">Minor Surgery</span>
+        </div>
+        <div class="xform-card">
+          <img alt="Suture tray"
+            src="https://images.unsplash.com/photo-1582719471384-894fbb16e074?w=800&q=80&auto=format&fit=crop"
+            onerror="this.style.display='none'" />
+          <span class="ba">Suture Tray</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Expert section (dark) ───────────────────────────────────────────── -->
+<section class="section" data-screen-label="Expert">
+  <div class="wrap">
+    <div class="two-up dark">
+      <div class="panel-img">
+        <img alt="Surgeons in theatre"
+          src="https://images.unsplash.com/photo-1530026405186-ed1f139313f8?w=900&q=80&auto=format&fit=crop"
+          onerror="this.style.display='none'" />
+      </div>
+      <div class="panel-txt">
+        <p class="eyebrow" style="color:rgba(246,241,230,.55)">Why Surgical Solutions</p>
+        <h2 class="display">Engineered with<br/>Clinicians, Trusted in&nbsp;Theatre.</h2>
+        <p>
+          Every product is specified with the surgeon who'll use it. We source from a tight bench of vetted manufacturers, batch-test on receipt, and ship from a single UK warehouse — so what arrives on your shelf is exactly what was signed off.
+        </p>
+        <div class="row">
+          <a href="#about" class="btn btn-primary btn-on-dark">Meet the Team</a>
+          <a href="#bespoke-form" class="btn-link" style="color:var(--c-on-prim)">Talk to a Specialist →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Testimonials marquee ────────────────────────────────────────────── -->
+<section class="test" data-screen-label="Testimonials">
+  <div class="test-head wrap">
+    <p class="eyebrow">Testimonials</p>
+    <h2 class="display">From the People Who Use It.</h2>
+  </div>
+
+  <div class="test-track">
+    <article class="test-card">
+      <svg width="22" height="18" viewBox="0 0 22 18" fill="none"><path d="M9 0H3a3 3 0 00-3 3v6a3 3 0 003 3h3v3a3 3 0 01-3 3v3a6 6 0 006-6V3a3 3 0 00-3-3zm10 0h-6a3 3 0 00-3 3v6a3 3 0 003 3h3v3a3 3 0 01-3 3v3a6 6 0 006-6V3a3 3 0 00-3-3z" fill="#0E2A47" opacity=".25"/></svg>
+      <p class="quote">"The bespoke dermatology pack Surgical Solutions built for our clinic shaved four minutes off every excision. Re-order is one email. That's it."</p>
+      <div class="who"><span class="avi">DS</span><div><strong>Dr. Sarah Patel</strong><span>Consultant Dermatologist · Manchester</span></div></div>
+    </article>
+
+    <article class="test-card">
+      <svg width="22" height="18" viewBox="0 0 22 18" fill="none"><path d="M9 0H3a3 3 0 00-3 3v6a3 3 0 003 3h3v3a3 3 0 01-3 3v3a6 6 0 006-6V3a3 3 0 00-3-3zm10 0h-6a3 3 0 00-3 3v6a3 3 0 003 3h3v3a3 3 0 01-3 3v3a6 6 0 006-6V3a3 3 0 00-3-3z" fill="#0E2A47" opacity=".25"/></svg>
+      <p class="quote">"We switched our entire single-use range to Surgical Solutions in 2022. Three years in, zero supply incidents and meaningful savings on each procedure."</p>
+      <div class="who"><span class="avi">JR</span><div><strong>James Reeves</strong><span>Procurement Lead · Nuffield Health</span></div></div>
+    </article>
+
+    <article class="test-card">
+      <svg width="22" height="18" viewBox="0 0 22 18" fill="none"><path d="M9 0H3a3 3 0 00-3 3v6a3 3 0 003 3h3v3a3 3 0 01-3 3v3a6 6 0 006-6V3a3 3 0 00-3-3zm10 0h-6a3 3 0 00-3 3v6a3 3 0 003 3h3v3a3 3 0 01-3 3v3a6 6 0 006-6V3a3 3 0 00-3-3z" fill="#0E2A47" opacity=".25"/></svg>
+      <p class="quote">"They actually pick up the phone. When our ENT list grew last spring they redesigned our pack in under a fortnight and held stock for us."</p>
+      <div class="who"><span class="avi">MO</span><div><strong>Maya O'Brien</strong><span>Theatre Manager · The London Clinic</span></div></div>
+    </article>
+
+    <article class="test-card">
+      <svg width="22" height="18" viewBox="0 0 22 18" fill="none"><path d="M9 0H3a3 3 0 00-3 3v6a3 3 0 003 3h3v3a3 3 0 01-3 3v3a6 6 0 006-6V3a3 3 0 00-3-3zm10 0h-6a3 3 0 00-3 3v6a3 3 0 003 3h3v3a3 3 0 01-3 3v3a6 6 0 006-6V3a3 3 0 00-3-3z" fill="#0E2A47" opacity=".25"/></svg>
+      <p class="quote">"Their consumables shop is the cleanest re-ordering experience in the sector — what we need, when we need it, at a price that makes sense."</p>
+      <div class="who"><span class="avi">AH</span><div><strong>Dr. Adam Hughes</strong><span>GP Principal · Cotswold Medical</span></div></div>
+    </article>
+
+    <!-- duplicate cards for seamless loop -->
+    <article class="test-card">
+      <svg width="22" height="18" viewBox="0 0 22 18" fill="none"><path d="M9 0H3a3 3 0 00-3 3v6a3 3 0 003 3h3v3a3 3 0 01-3 3v3a6 6 0 006-6V3a3 3 0 00-3-3zm10 0h-6a3 3 0 00-3 3v6a3 3 0 003 3h3v3a3 3 0 01-3 3v3a6 6 0 006-6V3a3 3 0 00-3-3z" fill="#0E2A47" opacity=".25"/></svg>
+      <p class="quote">"The bespoke dermatology pack Surgical Solutions built for our clinic shaved four minutes off every excision. Re-order is one email. That's it."</p>
+      <div class="who"><span class="avi">DS</span><div><strong>Dr. Sarah Patel</strong><span>Consultant Dermatologist · Manchester</span></div></div>
+    </article>
+    <article class="test-card">
+      <svg width="22" height="18" viewBox="0 0 22 18" fill="none"><path d="M9 0H3a3 3 0 00-3 3v6a3 3 0 003 3h3v3a3 3 0 01-3 3v3a6 6 0 006-6V3a3 3 0 00-3-3zm10 0h-6a3 3 0 00-3 3v6a3 3 0 003 3h3v3a3 3 0 01-3 3v3a6 6 0 006-6V3a3 3 0 00-3-3z" fill="#0E2A47" opacity=".25"/></svg>
+      <p class="quote">"We switched our entire single-use range to Surgical Solutions in 2022. Three years in, zero supply incidents and meaningful savings on each procedure."</p>
+      <div class="who"><span class="avi">JR</span><div><strong>James Reeves</strong><span>Procurement Lead · Nuffield Health</span></div></div>
+    </article>
+    <article class="test-card">
+      <svg width="22" height="18" viewBox="0 0 22 18" fill="none"><path d="M9 0H3a3 3 0 00-3 3v6a3 3 0 003 3h3v3a3 3 0 01-3 3v3a6 6 0 006-6V3a3 3 0 00-3-3zm10 0h-6a3 3 0 00-3 3v6a3 3 0 003 3h3v3a3 3 0 01-3 3v3a6 6 0 006-6V3a3 3 0 00-3-3z" fill="#0E2A47" opacity=".25"/></svg>
+      <p class="quote">"They actually pick up the phone. When our ENT list grew last spring they redesigned our pack in under a fortnight and held stock for us."</p>
+      <div class="who"><span class="avi">MO</span><div><strong>Maya O'Brien</strong><span>Theatre Manager · The London Clinic</span></div></div>
+    </article>
+    <article class="test-card">
+      <svg width="22" height="18" viewBox="0 0 22 18" fill="none"><path d="M9 0H3a3 3 0 00-3 3v6a3 3 0 003 3h3v3a3 3 0 01-3 3v3a6 6 0 006-6V3a3 3 0 00-3-3zm10 0h-6a3 3 0 00-3 3v6a3 3 0 003 3h3v3a3 3 0 01-3 3v3a6 6 0 006-6V3a3 3 0 00-3-3z" fill="#0E2A47" opacity=".25"/></svg>
+      <p class="quote">"Their consumables shop is the cleanest re-ordering experience in the sector — what we need, when we need it, at a price that makes sense."</p>
+      <div class="who"><span class="avi">AH</span><div><strong>Dr. Adam Hughes</strong><span>GP Principal · Cotswold Medical</span></div></div>
+    </article>
+  </div>
+</section>
+
+<!-- ── Final CTA banner ────────────────────────────────────────────────── -->
+<section class="wrap" data-screen-label="CTA">
+  <div class="cta">
+    <div class="pic">
+      <img alt="Surgeon"
+        src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=600&q=80&auto=format&fit=crop"
+        onerror="this.style.display='none'" />
+    </div>
+    <div class="cta-mid">
+      <p class="eyebrow" style="color:rgba(246,241,230,.55)">Get Started</p>
+      <h3>Place Your Next Order<br/>in Under Two Minutes.</h3>
+      <p>New customer? Open a trade account and we'll match your usual pack list, share trade pricing and arrange a free sample box.</p>
+      <div style="display:flex; gap:14px; justify-content:center; flex-wrap:wrap;">
+        <a href="#" class="btn btn-primary btn-on-dark">Open Trade Account</a>
+        <a href="#" class="btn-link" style="color:var(--c-on-prim)">+44 (0) 1753 299 353 →</a>
+      </div>
+    </div>
+    <div class="pic">
+      <img alt="Theatre"
+        src="https://images.unsplash.com/photo-1631815588090-d4bfec5b1ccb?w=600&q=80&auto=format&fit=crop"
+        onerror="this.style.display='none'" />
+    </div>
+  </div>
+</section>
+
+<!-- ── Footer ──────────────────────────────────────────────────────────── -->
+<footer class="foot wrap" data-screen-label="Footer">
+  <div class="foot-top">
+    <div>
+      <h4 class="foot-brand">surgical solutions</h4>
+      <p>Specialists in single-use surgical instruments, bespoke procedure packs and theatre consumables. Slough, UK.</p>
+      <p style="margin-top:14px;">Unit 860, Plymouth Road,<br/>Slough Trading Estate, SL1 4LP</p>
+    </div>
+    <div>
+      <h5>Catalogue</h5>
+      <ul>
+        <li><a href="#">Procedure Packs</a></li>
+        <li><a href="#">Single Use</a></li>
+        <li><a href="#">Consumables</a></li>
+        <li><a href="#">Bespoke Design</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>Specialty</h5>
+      <ul>
+        <li><a href="#">Dermatology</a></li>
+        <li><a href="#">ENT</a></li>
+        <li><a href="#">General Surgery</a></li>
+        <li><a href="#">Minor Ops</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>Account</h5>
+      <ul>
+        <li><a href="#">Open Trade Account</a></li>
+        <li><a href="#">My Account</a></li>
+        <li><a href="#">Order History</a></li>
+        <li><a href="#">Quote Builder</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>Contact</h5>
+      <ul>
+        <li><a href="tel:+441753299353">+44 (0) 1753 299 353</a></li>
+        <li><a href="mailto:enquiries@surgicalsolution.co.uk">enquiries@<br/>surgicalsolution.co.uk</a></li>
+        <li><a href="#">Find on map</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="foot-watermark" aria-hidden="true">surgical solutions</div>
+  <div class="foot-bottom">
+    <span>© 2026 Surgical Solutions Ltd. All rights reserved.</span>
+    <span>VAT GB 123 4567 89 · ISO 13485 · NHS Supply Chain</span>
+  </div>
+</footer>
+
+<!-- ── Cart drawer (vanilla) ───────────────────────────────────────────── -->
+<div class="drawer-mask" id="drawer-mask"></div>
+<aside class="drawer" id="drawer" aria-hidden="true">
+  <div class="drawer-hd">
+    <h3>Your Cart</h3>
+    <button class="iconbtn is-ghost" id="close-cart" aria-label="Close cart">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6l-12 12"/></svg>
+    </button>
+  </div>
+  <div class="drawer-body" id="drawer-body"></div>
+  <div class="drawer-foot" id="drawer-foot" style="display:none;">
+    <div class="totals"><span>Subtotal</span><span id="sub-total">£0.00</span></div>
+    <div class="totals"><span>P&amp;P (free over £100)</span><span id="ship-total">£4.95</span></div>
+    <div class="totals grand"><span>Total</span><span id="grand-total">£0.00</span></div>
+    <button class="btn btn-primary">Proceed to Checkout</button>
+    <div class="note">Trade accounts auto-apply pricing</div>
+  </div>
+</aside>
+
+<!-- ── Filter chips style (inline because tiny) ────────────────────────── -->
+<style>
+.filter-chip {
+  padding: 10px 16px; border-radius: 999px;
+  border: 1px solid var(--c-line);
+  background: transparent; cursor: pointer;
+  font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 500;
+  color: var(--c-ink);
+  transition: all .2s var(--ease);
+}
+.filter-chip:hover { background: rgba(20,20,20,.04); }
+.filter-chip.is-active { background: var(--c-primary); color: var(--c-on-prim); border-color: var(--c-primary); }
+</style>
+
+<!-- React + Babel for Tweaks panel only -->
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script type="text/babel" src="tweaks-panel.jsx"></script>
+
+<!-- Products data + render + cart + tweaks mount -->
+<script src="products.js"></script>
+<script type="text/babel" src="app.jsx"></script>
+
+</body>
+</html>
