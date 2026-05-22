@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import './globals.css';
 import { LenisProvider } from '@/components/LenisProvider';
 import { CartProvider } from '@/lib/cart';
@@ -7,6 +7,12 @@ export const metadata: Metadata = {
   title: 'Surgical Solutions — Specialists in Surgical Instruments',
   description:
     "For 20 years we've supplied UK hospitals and clinics with single-use instruments, bespoke procedure packs and theatre consumables.",
+};
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  viewportFit: 'cover',
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
