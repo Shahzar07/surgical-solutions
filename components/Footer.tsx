@@ -2,8 +2,18 @@ export function Footer() {
   return (
     <footer className="foot wrap">
       <div className="foot-top">
-        <div>
-          <h4 className="foot-brand">surgical solutions</h4>
+        <div className="foot-brand-col">
+          <div className="foot-brand-video" aria-label="Surgical Solutions">
+            <video
+              src="/logo.mp4"
+              autoPlay
+              loop
+              muted
+              playsInline
+              preload="auto"
+              aria-hidden="true"
+            />
+          </div>
           <p>Specialists in single-use surgical instruments, bespoke procedure packs and theatre consumables. Slough, UK.</p>
           <p style={{ marginTop: 14 }}>
             Unit 860, Plymouth Road,<br />
@@ -46,7 +56,6 @@ export function Footer() {
           </ul>
         </div>
       </div>
-      <div className="foot-watermark" aria-hidden="true">surgical solutions</div>
       <div className="foot-bottom">
         <span>© 2026 Surgical Solutions Ltd. All rights reserved.</span>
         <span>VAT GB 123 4567 89 · ISO 13485 · NHS Supply Chain</span>
