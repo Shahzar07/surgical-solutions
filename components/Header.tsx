@@ -34,11 +34,6 @@ export function Header() {
             </svg>
             <span className="label-text">Cart</span> <span className="count">{count}</span>
           </button>
-          <button className="iconbtn" aria-label="Menu">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round">
-              <path d="M4 7h16M4 12h16M4 17h16" />
-            </svg>
-          </button>
         </div>
       </div>
     </header>
