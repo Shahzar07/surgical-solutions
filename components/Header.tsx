@@ -17,7 +17,7 @@ export function Header() {
         <a className="brand brand-video" href="#" aria-label="Surgical Solutions home">
           <video
             className="brand-video-el"
-            src="/logo.mp4"
+            src="/logo.webm"
             autoPlay
             loop
             muted
