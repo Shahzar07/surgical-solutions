@@ -40,16 +40,15 @@ export function Hero() {
           <div className="hero-center">
             <h1 className="display">
               {HEADLINE_LINES.map((line, i) => (
-                <span key={i} className="hero-headline-line">
-                  <motion.span
-                    className="hero-headline-inner"
-                    initial={{ y: '110%' }}
-                    animate={{ y: '0%' }}
-                    transition={{ duration: 0.9, ease: EASE, delay: 0.15 + i * 0.12 }}
-                  >
-                    {line}
-                  </motion.span>
-                </span>
+                <motion.span
+                  key={i}
+                  className="hero-headline-line"
+                  initial={{ opacity: 0, y: 24 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, ease: EASE, delay: 0.15 + i * 0.12 }}
+                >
+                  {line}
+                </motion.span>
               ))}
             </h1>
 
