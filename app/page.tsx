@@ -11,6 +11,7 @@ import { Testimonials } from '@/components/Testimonials';
 import { FinalCTA } from '@/components/FinalCTA';
 import { Footer } from '@/components/Footer';
 import { CartDrawer } from '@/components/CartDrawer';
+import { LiveChat } from '@/components/LiveChat';
 
 export default function HomePage() {
   return (
@@ -28,6 +29,7 @@ export default function HomePage() {
       <FinalCTA />
       <Footer />
       <CartDrawer />
+      <LiveChat />
     </>
   );
 }
