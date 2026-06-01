@@ -79,8 +79,8 @@ export function Hero() {
         >
           <motion.img
             style={{ y: bannerY }}
-            alt="Surgical team at work in a modern operating theatre"
-            src="https://images.unsplash.com/photo-1530026405186-ed1f139313f8?w=1600&q=80&auto=format&fit=crop"
+            alt="Precision surgical instruments laid out on a sterile tray"
+            src="https://images.unsplash.com/photo-1579154204601-01588f351e67?w=1600&q=80&auto=format&fit=crop"
           />
           <div className="hero-banner-stats">
             <motion.div
