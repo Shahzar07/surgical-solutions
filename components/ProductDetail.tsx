@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { fmtGBP, type Product } from '@/lib/products';
+import { ART, fmtGBP, type Product } from '@/lib/products';
 import { ProductMedia } from '@/components/ProductMedia';
 import { useCart } from '@/lib/cart';
 
@@ -17,6 +17,7 @@ export function ProductDetail({ product, related }: { product: Product; related:
   const { add, open } = useCart();
   const [qty, setQty] = useState(1);
   const [added, setAdded] = useState(false);
+  const [view, setView] = useState<'photo' | 'art'>('photo');
 
   const handleAdd = () => {
     add(product.id, qty);
@@ -28,11 +29,32 @@ export function ProductDetail({ product, related }: { product: Product; related:
     <section className="section pdp">
       <div className="wrap">
         <div className="pdp-grid">
-          <div className="pdp-media">
-            {product.badge && (
-              <span className={`prod-badge ${badgeClass(product.badge)}`}>{product.badge}</span>
-            )}
-            <ProductMedia product={product} w={1200} className="pdp-photo" />
+          <div className="pdp-gallery">
+            <div className="pdp-media">
+              {product.badge && (
+                <span className={`prod-badge ${badgeClass(product.badge)}`}>{product.badge}</span>
+              )}
+              {view === 'photo' ? (
+                <ProductMedia product={product} w={1200} className="pdp-photo" />
+              ) : (
+                <div className="pdp-photo pdp-art" dangerouslySetInnerHTML={{ __html: ART[product.art] || '' }} />
+              )}
+            </div>
+            <div className="pdp-thumbs">
+              <button
+                className={`pdp-thumb${view === 'photo' ? ' is-active' : ''}`}
+                onClick={() => setView('photo')}
+                aria-label="Product photo"
+              >
+                <ProductMedia product={product} w={200} className="pdp-thumb-img" />
+              </button>
+              <button
+                className={`pdp-thumb pdp-thumb-art${view === 'art' ? ' is-active' : ''}`}
+                onClick={() => setView('art')}
+                aria-label="Technical illustration"
+                dangerouslySetInnerHTML={{ __html: ART[product.art] || '' }}
+              />
+            </div>
           </div>
 
           <div className="pdp-info">

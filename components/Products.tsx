@@ -56,7 +56,7 @@ export function Products({
             <article key={p.id} className="prod">
               <div className="prod-media">
                 {p.badge && <span className={`prod-badge ${badgeClass(p.badge)}`}>{p.badge}</span>}
-                <ProductMedia product={p} w={600} />
+                <ProductMedia product={p} w={800} />
                 <button
                   className="prod-quick"
                   onClick={() => add(p.id)}
