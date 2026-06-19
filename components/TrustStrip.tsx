@@ -2,7 +2,7 @@ export function TrustStrip() {
   return (
     <div className="wrap">
       <div className="trust">
-        <span>Trusted across the UK by</span>
+        <span>Supplying the NHS &amp; private healthcare</span>
         <div className="trust-logos">
           <span>NHS&nbsp;Trusts</span>
           <span>BUPA</span>

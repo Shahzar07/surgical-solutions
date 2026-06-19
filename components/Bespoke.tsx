@@ -1,8 +1,10 @@
+import Link from 'next/link';
+
 const CARDS = [
-  { src: 'https://images.unsplash.com/photo-1559757175-5700dde675bc?w=800&q=80&auto=format&fit=crop',  alt: 'Dermatology pack',  label: 'Dermatology Pack' },
-  { src: 'https://images.unsplash.com/photo-1666214280391-8ff5bd3c0bf0?w=800&q=80&auto=format&fit=crop',  alt: 'ENT examination',   label: 'ENT Examination' },
-  { src: 'https://images.unsplash.com/photo-1581595220892-b0739db3ba8c?w=800&q=80&auto=format&fit=crop',  alt: 'Minor surgery',     label: 'Minor Surgery' },
-  { src: 'https://images.unsplash.com/photo-1582719471384-894fbb16e074?w=800&q=80&auto=format&fit=crop',  alt: 'Suture tray',       label: 'Suture Tray' },
+  { src: 'https://images.unsplash.com/photo-1559757175-5700dde675bc?w=800&q=80&auto=format&fit=crop',  alt: 'Dermatology pack',  label: 'Dermatology' },
+  { src: 'https://images.unsplash.com/photo-1666214280391-8ff5bd3c0bf0?w=800&q=80&auto=format&fit=crop',  alt: 'ENT examination',   label: 'ENT' },
+  { src: 'https://images.unsplash.com/photo-1581595220892-b0739db3ba8c?w=800&q=80&auto=format&fit=crop',  alt: 'General surgery',   label: 'General Surgery' },
+  { src: 'https://images.unsplash.com/photo-1582719471384-894fbb16e074?w=800&q=80&auto=format&fit=crop',  alt: 'Gynaecology pack',  label: 'Gynaecology' },
 ];
 
 export function Bespoke() {
@@ -11,14 +13,15 @@ export function Bespoke() {
       <div className="wrap">
         <div className="xform">
           <div className="xform-left">
-            <p className="eyebrow">Bespoke Design</p>
-            <h2 className="display">See the Procedure Packs in&nbsp;Action.</h2>
+            <p className="eyebrow">Bespoke Procedure Packs</p>
+            <h2 className="display">Built to Your Exact&nbsp;Specification.</h2>
             <p className="lede">
-              A library of custom packs we&apos;ve engineered with surgeons across Dermatology,
-              ENT and General Surgery — every component picked, every tray laid out for the
-              way you actually work.
+              Our fully trained and experienced team can customise procedure packs to your
+              clinic&apos;s exact specifications — matching the full range of clinical procedures
+              you undertake. One pack standardises session start-up, removes multiple delivery
+              charges and invoices, and means you manage fewer line items.
             </p>
-            <a href="#bespoke-form" className="btn btn-primary">Request a Pack</a>
+            <Link href="/contact" className="btn btn-primary">Request a Pack</Link>
             <div className="ctrl">
               <button className="iconbtn is-ghost" aria-label="Previous">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M15 18l-6-6 6-6" /></svg>

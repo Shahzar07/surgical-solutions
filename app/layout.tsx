@@ -2,11 +2,16 @@ import type { Metadata, Viewport } from 'next';
 import './globals.css';
 import { LenisProvider } from '@/components/LenisProvider';
 import { CartProvider } from '@/lib/cart';
+import { AnnouncementBar } from '@/components/AnnouncementBar';
+import { Header } from '@/components/Header';
+import { Footer } from '@/components/Footer';
+import { CartDrawer } from '@/components/CartDrawer';
+import { LiveChat } from '@/components/LiveChat';
 
 export const metadata: Metadata = {
-  title: 'Surgical Solutions — Specialists in Surgical Instruments',
+  title: 'Surgical Solutions — Single-Use Surgical Instruments & Procedure Packs',
   description:
-    "For 20 years we've supplied UK hospitals and clinics with single-use instruments, bespoke procedure packs and theatre consumables.",
+    'A leading UK provider and distributor of high-quality single-use surgical instruments, bespoke procedure packs and reusable instruments across Dermatology, ENT, General Surgery and Gynaecology.',
 };
 
 export const viewport: Viewport = {
@@ -28,7 +33,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body>
         <LenisProvider>
-          <CartProvider>{children}</CartProvider>
+          <CartProvider>
+            <AnnouncementBar />
+            <Header />
+            {children}
+            <Footer />
+            <CartDrawer />
+            <LiveChat />
+          </CartProvider>
         </LenisProvider>
       </body>
     </html>

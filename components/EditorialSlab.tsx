@@ -1,26 +1,28 @@
+import Link from 'next/link';
+
 export function EditorialSlab() {
   return (
     <div className="wrap">
-      <section className="slab">
-        <p className="eyebrow">Est. 2005 · Slough, UK</p>
+      <section className="slab" id="about">
+        <p className="eyebrow">Slough Trading Estate · United Kingdom</p>
         <h2 className="display">
           Quality Instruments<br />
           for the Moments<br />
           That&nbsp;Matter Most.
         </h2>
         <p className="lede">
-          Every blade, forcep and pack we ship has been specified, sourced and inspected
-          with one job in mind — to perform exactly when it counts. We&apos;re a small UK
-          team obsessed with consistency, traceability and the unglamorous logistics that
-          keep your list running.
+          Surgical Solutions is a leading UK provider and distributor of high-quality
+          stainless-steel surgical instruments, single-use products and bespoke procedure
+          packs. Every item is packed in a cleanroom environment after stringent quality
+          control and offered with full &lsquo;trace me&rsquo; functionality.
         </p>
-        <a href="#about" className="btn btn-primary">About Surgical Solutions</a>
+        <Link href="/about" className="btn btn-primary">About Surgical Solutions</Link>
 
         <div className="slab-meta">
-          <div className="stat"><strong>20+</strong><span>Years Supplying</span></div>
-          <div className="stat"><strong>800+</strong><span>UK Clinics Served</span></div>
-          <div className="stat"><strong>14:00</strong><span>Same-day Cut-off</span></div>
-          <div className="stat"><strong>ISO 13485</strong><span>Certified Quality</span></div>
+          <div className="stat"><strong>4</strong><span>Clinical Specialties</span></div>
+          <div className="stat"><strong>NHS</strong><span>&amp; Private Healthcare</span></div>
+          <div className="stat"><strong>Trace&nbsp;Me</strong><span>Full Traceability</span></div>
+          <div className="stat"><strong>Cleanroom</strong><span>Packed &amp; QC&apos;d</span></div>
         </div>
       </section>
     </div>

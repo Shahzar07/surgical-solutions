@@ -30,7 +30,7 @@ export function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: EASE }}
           >
-            Surgical Instruments · Procedure Packs · Consumables
+            Single-Use Instruments · Procedure Packs · Reusable
           </motion.p>
 
           {/* Per-line fade-up (no overflow clip-mask — avoids the descender
@@ -55,9 +55,9 @@ export function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: EASE, delay: 0.5 }}
           >
-            For 20&nbsp;years we&apos;ve supplied UK hospitals, surgeries and independents
-            with single-use instruments, bespoke procedure packs and theatre consumables
-            — built to clinical spec and delivered on time.
+            A leading UK provider and distributor of high-quality surgical instruments
+            — single-use and reusable — with bespoke procedure packs across Dermatology,
+            ENT, General Surgery and Gynaecology, supplied to the NHS and private healthcare.
           </motion.p>
 
           <motion.div
@@ -67,7 +67,7 @@ export function Hero() {
             transition={{ duration: 0.7, ease: EASE, delay: 0.62 }}
           >
             <a href="#shop" className="btn btn-primary">Shop the Catalogue</a>
-            <a href="#bespoke" className="btn-link">Request a Bespoke Pack →</a>
+            <a href="/contact" className="btn-link">Request a Bespoke Pack →</a>
           </motion.div>
         </div>
 
@@ -89,8 +89,8 @@ export function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, ease: EASE, delay: 0.95 }}
             >
-              <strong>ISO 13485</strong>
-              <span>Certified Quality</span>
+              <strong>NHS &amp; Private</strong>
+              <span>Trusted UK-wide</span>
             </motion.div>
             <motion.div
               className="hero-chip"
@@ -98,8 +98,8 @@ export function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, ease: EASE, delay: 1.05 }}
             >
-              <strong>20+ Years</strong>
-              <span>800+ UK Clinics Served</span>
+              <strong>Trace&nbsp;Me</strong>
+              <span>Full Traceability</span>
             </motion.div>
           </div>
         </motion.div>
