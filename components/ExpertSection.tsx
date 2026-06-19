@@ -1,6 +1,6 @@
 export function ExpertSection() {
   return (
-    <section className="section">
+    <section className="section" id="about">
       <div className="wrap">
         <div className="two-up dark">
           <div className="panel-img">

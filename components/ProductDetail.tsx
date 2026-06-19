@@ -9,6 +9,7 @@ import { useCart } from '@/lib/cart';
 function badgeClass(badge: Product['badge']): string {
   if (badge === 'IN STOCK') return 'is-stock';
   if (badge === 'NEW') return 'is-new';
+  if (badge === 'BEST SELLER') return 'is-best';
   return '';
 }
 
