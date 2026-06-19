@@ -1,15 +1,17 @@
+const LOGOS = ['NHS Trusts', 'BUPA', 'Nuffield Health', 'HCA Healthcare', 'Spire', 'The London Clinic'];
+
 export function TrustStrip() {
   return (
     <div className="wrap">
       <div className="trust">
-        <span>Trusted across the UK by</span>
+        <span className="trust-label">
+          <span className="trust-dot" />
+          Trusted across the UK by 800+ clinics
+        </span>
         <div className="trust-logos">
-          <span>NHS&nbsp;Trusts</span>
-          <span>BUPA</span>
-          <span>Nuffield&nbsp;Health</span>
-          <span>HCA&nbsp;Healthcare</span>
-          <span>Spire</span>
-          <span>The&nbsp;London&nbsp;Clinic</span>
+          {LOGOS.map((l) => (
+            <span key={l} className="trust-chip">{l}</span>
+          ))}
         </div>
       </div>
     </div>

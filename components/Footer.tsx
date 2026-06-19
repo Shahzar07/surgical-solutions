@@ -1,18 +1,12 @@
+import { Logo } from '@/components/Logo';
+
 export function Footer() {
   return (
-    <footer className="foot wrap">
+    <footer className="foot wrap" id="contact">
       <div className="foot-top">
         <div className="foot-brand-col">
-          <div className="foot-brand-video" aria-label="Surgical Solutions">
-            <video
-              src="/logo.webm"
-              autoPlay
-              loop
-              muted
-              playsInline
-              preload="auto"
-              aria-hidden="true"
-            />
+          <div className="foot-logo">
+            <Logo size="footer" />
           </div>
           <p>Specialists in single-use surgical instruments, bespoke procedure packs and theatre consumables. Slough, UK.</p>
           <p style={{ marginTop: 14 }}>
@@ -59,6 +53,11 @@ export function Footer() {
       <div className="foot-bottom">
         <span>© 2026 Surgical Solutions Ltd. All rights reserved.</span>
         <span>VAT GB 123 4567 89 · ISO 13485 · NHS Supply Chain</span>
+      </div>
+      <div className="foot-credit">
+        <span>
+          Powered by <a href="https://eaglestudio.dev" target="_blank" rel="noopener noreferrer">Eagle&nbsp;Studio</a>
+        </span>
       </div>
     </footer>
   );

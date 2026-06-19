@@ -175,17 +175,195 @@ export type Product = {
   unit: string;
   badge: 'BEST SELLER' | 'NEW' | 'IN STOCK' | null;
   art: keyof typeof ART;
+  /** Unsplash photo id (the part after `photo-`) used to build the product image. */
+  photo: string;
+  /** One-line summary shown on cards and at the top of the detail page. */
+  blurb: string;
+  /** Longer marketing/clinical description for the product detail page. */
+  description: string;
+  /** Bullet-point selling points. */
+  features: string[];
+  /** Key/value specification rows. */
+  specs: Array<{ label: string; value: string }>;
 };
 
 export const PRODUCTS: Product[] = [
-  { id: 'p1', sku: 'SS-FOR-ADS', name: 'Adson Tissue Forceps',         cat: 'Singles',     price: 4.50,  unit: 'pack of 10', badge: 'BEST SELLER', art: 'forceps' },
-  { id: 'p2', sku: 'SS-SCL-15',  name: 'Disposable Scalpel No.15',     cat: 'Singles',     price: 2.20,  unit: 'each',       badge: null,          art: 'scalpel' },
-  { id: 'p3', sku: 'SS-PCK-MNR', name: 'Minor Surgery Procedure Pack', cat: 'Packs',       price: 18.00, unit: 'sterile',    badge: 'NEW',         art: 'pack' },
-  { id: 'p4', sku: 'SS-PCK-ENT', name: 'ENT Examination Kit',          cat: 'Packs',       price: 32.00, unit: 'sterile',    badge: null,          art: 'speculum' },
-  { id: 'p5', sku: 'SS-TRY-SUT', name: 'Sterile Suture Tray',          cat: 'Packs',       price: 24.50, unit: 'tray',       badge: null,          art: 'tray' },
-  { id: 'p6', sku: 'SS-PUN-4MM', name: 'Skin Biopsy Punch 4mm',        cat: 'Singles',     price: 3.80,  unit: 'box of 10',  badge: null,          art: 'punch' },
-  { id: 'p7', sku: 'SS-GWN-STR', name: 'Sterile Surgical Gown — L',    cat: 'Consumables', price: 6.40,  unit: 'each',       badge: 'IN STOCK',    art: 'gown' },
-  { id: 'p8', sku: 'SS-IOD-PRP', name: 'Iodine Skin Prep 30ml',        cat: 'Consumables', price: 4.20,  unit: 'bottle',     badge: null,          art: 'iodine' },
+  {
+    id: 'p1', sku: 'SS-FOR-ADS', name: 'Adson Tissue Forceps', cat: 'Singles',
+    price: 4.50, unit: 'pack of 10', badge: 'BEST SELLER', art: 'forceps',
+    photo: '1582719471384-894fbb16e074',
+    blurb: 'Fine 1×2 toothed forceps for atraumatic tissue handling.',
+    description:
+      'Single-use Adson tissue forceps with a fine 1×2 toothed tip for secure, atraumatic grip on delicate tissue. Manufactured from surgical-grade stainless steel, individually inspected and supplied non-sterile in convenient packs of ten — ideal for minor ops, suturing and dermatology lists.',
+    features: [
+      '1×2 fine teeth for secure, low-trauma grip',
+      'Surgical-grade 410 stainless steel',
+      'Serrated, knurled handle for control',
+      'Single-patient use — eliminates cross-contamination',
+    ],
+    specs: [
+      { label: 'Length', value: '120 mm' },
+      { label: 'Tip', value: '1×2 teeth' },
+      { label: 'Material', value: 'Stainless steel 410' },
+      { label: 'Pack size', value: '10 units' },
+      { label: 'Sterility', value: 'Non-sterile' },
+    ],
+  },
+  {
+    id: 'p2', sku: 'SS-SCL-15', name: 'Disposable Scalpel No.15', cat: 'Singles',
+    price: 2.20, unit: 'each', badge: null, art: 'scalpel',
+    photo: '1579154204601-01588f351e67',
+    blurb: 'Sterile No.15 blade on an ergonomic moulded handle.',
+    description:
+      'Sterile single-use scalpel pairing a carbon-steel No.15 blade with a lightweight, textured polymer handle for precise short, curved incisions. Each scalpel is individually peel-pouched and EO sterilised, with a retracting safety cover available on request.',
+    features: [
+      'Carbon-steel No.15 blade — consistently sharp',
+      'Ergonomic moulded handle with depth scale',
+      'Individually peel-pouched, EO sterilised',
+      'Single use — no reprocessing required',
+    ],
+    specs: [
+      { label: 'Blade', value: 'No.15 carbon steel' },
+      { label: 'Handle', value: 'No.3 profile, polymer' },
+      { label: 'Sterility', value: 'Sterile (EO)' },
+      { label: 'Packaging', value: 'Individual peel pouch' },
+      { label: 'Shelf life', value: '5 years' },
+    ],
+  },
+  {
+    id: 'p3', sku: 'SS-PCK-MNR', name: 'Minor Surgery Procedure Pack', cat: 'Packs',
+    price: 18.00, unit: 'sterile', badge: 'NEW', art: 'pack',
+    photo: '1581595220892-b0739db3ba8c',
+    blurb: 'Everything for a minor ops list in one sterile tray.',
+    description:
+      'A fully sterile, single-use minor surgery pack laid out for the way a minor ops list actually runs — drape, instruments, swabs and consumables in one peel-open tray. Reduces set-up time and guarantees a consistent kit every session.',
+    features: [
+      'Complete minor-ops kit in one sterile tray',
+      'Fenestrated drape, gallipot and swabs included',
+      'Adson forceps, scalpel and needle holder',
+      'Single-wrap sterile — open and go',
+    ],
+    specs: [
+      { label: 'Contents', value: '14 components' },
+      { label: 'Drape', value: 'Fenestrated, 75×90 cm' },
+      { label: 'Sterility', value: 'Sterile (gamma)' },
+      { label: 'Pack type', value: 'Single procedure' },
+      { label: 'Shelf life', value: '3 years' },
+    ],
+  },
+  {
+    id: 'p4', sku: 'SS-PCK-ENT', name: 'ENT Examination Kit', cat: 'Packs',
+    price: 32.00, unit: 'sterile', badge: null, art: 'speculum',
+    photo: '1666214280391-8ff5bd3c0bf0',
+    blurb: 'Aural and nasal specula with everything for ENT clinic.',
+    description:
+      'A sterile single-use ENT examination kit containing graduated aural specula, a Thudichum nasal speculum, tongue depressor and wax-removal consumables — everything needed for a complete ear, nose and throat assessment in clinic.',
+    features: [
+      'Graduated aural specula (3, 4, 5 mm)',
+      'Thudichum nasal speculum',
+      'Tongue depressor and cotton carriers',
+      'Single-use — eliminates reprocessing downtime',
+    ],
+    specs: [
+      { label: 'Aural specula', value: '3 / 4 / 5 mm' },
+      { label: 'Nasal', value: 'Thudichum' },
+      { label: 'Contents', value: '9 components' },
+      { label: 'Sterility', value: 'Sterile (EO)' },
+      { label: 'Shelf life', value: '3 years' },
+    ],
+  },
+  {
+    id: 'p5', sku: 'SS-TRY-SUT', name: 'Sterile Suture Tray', cat: 'Packs',
+    price: 24.50, unit: 'tray', badge: null, art: 'tray',
+    photo: '1583912086096-8c60d75a53f9',
+    blurb: 'Pre-set suturing tray for wound closure and removal.',
+    description:
+      'A pre-set sterile suturing tray with needle holder, fine-toothed forceps, suture scissors, gallipot and swabs — configured for quick wound closure and suture removal in A&E, GP and treatment-room settings.',
+    features: [
+      'Needle holder, forceps and suture scissors',
+      'Gauze swabs and sterile gallipot',
+      'Rigid tray doubles as a sterile field',
+      'Single use — fully traceable lot coding',
+    ],
+    specs: [
+      { label: 'Contents', value: '8 components' },
+      { label: 'Scissors', value: 'Suture, 11 cm' },
+      { label: 'Tray', value: 'Rigid, peel-lidded' },
+      { label: 'Sterility', value: 'Sterile (gamma)' },
+      { label: 'Shelf life', value: '3 years' },
+    ],
+  },
+  {
+    id: 'p6', sku: 'SS-PUN-4MM', name: 'Skin Biopsy Punch 4mm', cat: 'Singles',
+    price: 3.80, unit: 'box of 10', badge: null, art: 'punch',
+    photo: '1559757175-5700dde675bc',
+    blurb: 'Sharp 4 mm dermal punch for clean biopsy cores.',
+    description:
+      'Disposable 4 mm dermal biopsy punch with a precision-ground circular blade for clean, full-thickness skin cores. Ergonomic grip handle and depth markings make sampling fast and reproducible. Supplied sterile in boxes of ten.',
+    features: [
+      'Precision-ground 4 mm circular blade',
+      'Clean, full-thickness cores',
+      'Ribbed handle with depth markings',
+      'Individually sterile, boxed in tens',
+    ],
+    specs: [
+      { label: 'Diameter', value: '4 mm' },
+      { label: 'Blade', value: 'Stainless steel' },
+      { label: 'Pack size', value: '10 units' },
+      { label: 'Sterility', value: 'Sterile (EO)' },
+      { label: 'Shelf life', value: '5 years' },
+    ],
+  },
+  {
+    id: 'p7', sku: 'SS-GWN-STR', name: 'Sterile Surgical Gown — L', cat: 'Consumables',
+    price: 6.40, unit: 'each', badge: 'IN STOCK', art: 'gown',
+    photo: '1530026405186-ed1f139313f8',
+    blurb: 'AAMI Level 3 reinforced gown, individually sterile.',
+    description:
+      'Reinforced sterile surgical gown offering AAMI Level 3 protection across the critical zones. Breathable SMS fabric with reinforced chest and sleeves, knitted cuffs and a wrap-around back. Supplied sterile with two hand towels, size Large.',
+    features: [
+      'AAMI Level 3 barrier protection',
+      'Reinforced chest and sleeve panels',
+      'Breathable SMS fabric, knitted cuffs',
+      'Includes two absorbent hand towels',
+    ],
+    specs: [
+      { label: 'Size', value: 'Large' },
+      { label: 'Protection', value: 'AAMI Level 3' },
+      { label: 'Fabric', value: 'Reinforced SMS' },
+      { label: 'Sterility', value: 'Sterile (EO)' },
+      { label: 'Includes', value: '2 hand towels' },
+    ],
+  },
+  {
+    id: 'p8', sku: 'SS-IOD-PRP', name: 'Iodine Skin Prep 30ml', cat: 'Consumables',
+    price: 4.20, unit: 'bottle', badge: null, art: 'iodine',
+    photo: '1631815588090-d4bfec5b1ccb',
+    blurb: '10% povidone-iodine pre-operative skin antiseptic.',
+    description:
+      '10% povidone-iodine (1% available iodine) pre-operative skin antiseptic for site preparation. Broad-spectrum, fast-acting and persistent, supplied in a 30 ml bottle that is ideal for single-procedure use with minimal waste.',
+    features: [
+      '10% povidone-iodine, 1% available iodine',
+      'Broad-spectrum, fast-acting antisepsis',
+      'Persistent residual activity',
+      'Convenient 30 ml single-procedure bottle',
+    ],
+    specs: [
+      { label: 'Active', value: 'Povidone-iodine 10%' },
+      { label: 'Available iodine', value: '1%' },
+      { label: 'Volume', value: '30 ml' },
+      { label: 'Form', value: 'Aqueous solution' },
+      { label: 'Shelf life', value: '3 years' },
+    ],
+  },
 ];
 
 export const fmtGBP = (n: number): string => '£' + n.toFixed(2);
+
+/** Build an Unsplash image URL for a product at a given render width. */
+export const productImage = (p: Product, w = 900): string =>
+  `https://images.unsplash.com/photo-${p.photo}?w=${w}&q=80&auto=format&fit=crop`;
+
+/** Look up a single product by its id. */
+export const getProduct = (id: string): Product | undefined =>
+  PRODUCTS.find((p) => p.id === id);

@@ -1,7 +1,9 @@
 'use client';
 
 import { useState } from 'react';
-import { ART, PRODUCTS, fmtGBP, type Product } from '@/lib/products';
+import Link from 'next/link';
+import { PRODUCTS, fmtGBP, type Product } from '@/lib/products';
+import { ProductMedia } from '@/components/ProductMedia';
 import { useCart } from '@/lib/cart';
 
 const FILTERS = ['All', 'Singles', 'Packs', 'Consumables'] as const;
@@ -10,10 +12,19 @@ type Filter = (typeof FILTERS)[number];
 function badgeClass(badge: Product['badge']): string {
   if (badge === 'IN STOCK') return 'is-stock';
   if (badge === 'NEW') return 'is-new';
+  if (badge === 'BEST SELLER') return 'is-best';
   return '';
 }
 
-export function Products() {
+export function Products({
+  eyebrow = 'Best Sellers',
+  heading = 'Ready to Ship.',
+  showCatalogueLink = true,
+}: {
+  eyebrow?: string;
+  heading?: string;
+  showCatalogueLink?: boolean;
+} = {}) {
   const [filter, setFilter] = useState<Filter>('All');
   const { add } = useCart();
 
@@ -24,10 +35,10 @@ export function Products() {
       <div className="wrap">
         <div className="shead">
           <div>
-            <p className="eyebrow">Best Sellers</p>
-            <h2 className="display">Ready to Ship.</h2>
+            <p className="eyebrow">{eyebrow}</p>
+            <h2 className="display">{heading}</h2>
           </div>
-          <div style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
+          <div style={{ display: 'flex', gap: 8, alignItems: 'center', flexWrap: 'wrap' }}>
             {FILTERS.map((f) => (
               <button
                 key={f}
@@ -45,8 +56,14 @@ export function Products() {
             <article key={p.id} className="prod">
               <div className="prod-media">
                 {p.badge && <span className={`prod-badge ${badgeClass(p.badge)}`}>{p.badge}</span>}
-                <div dangerouslySetInnerHTML={{ __html: ART[p.art] || '' }} />
-                <button className="prod-quick" onClick={() => add(p.id)}>+ Quick Add</button>
+                <ProductMedia product={p} w={800} />
+                <button
+                  className="prod-quick"
+                  onClick={() => add(p.id)}
+                  aria-label={`Add ${p.name} to cart`}
+                >
+                  + Quick Add
+                </button>
               </div>
               <div className="prod-body">
                 <span className="prod-cat">{p.cat} · {p.sku}</span>
@@ -56,13 +73,16 @@ export function Products() {
                   <span className="prod-unit">{p.unit}</span>
                 </div>
               </div>
+              <Link className="prod-stretch" href={`/products/${p.id}`} aria-label={`View ${p.name}`} />
             </article>
           ))}
         </div>
 
-        <div style={{ textAlign: 'center', marginTop: 48 }}>
-          <a href="#shop" className="btn btn-ghost">View Full Catalogue (240+ products)</a>
-        </div>
+        {showCatalogueLink && (
+          <div style={{ textAlign: 'center', marginTop: 48 }}>
+            <Link href="/products" className="btn btn-ghost">View Full Catalogue (240+ products)</Link>
+          </div>
+        )}
       </div>
     </section>
   );

@@ -1,6 +1,6 @@
 'use client';
 
-import { createContext, useCallback, useContext, useMemo, useState, type ReactNode } from 'react';
+import { createContext, useCallback, useContext, useEffect, useMemo, useState, type ReactNode } from 'react';
 import { PRODUCTS, type Product } from './products';
 
 type CartState = {
@@ -11,23 +11,54 @@ type CartState = {
   shipping: number;
   total: number;
   rows: Array<{ product: Product; qty: number; line: number }>;
-  add: (id: string) => void;
+  add: (id: string, qty?: number) => void;
   inc: (id: string) => void;
   dec: (id: string) => void;
+  remove: (id: string) => void;
+  clear: () => void;
   open: () => void;
   close: () => void;
 };
 
 const CartContext = createContext<CartState | null>(null);
 
+const STORAGE_KEY = 'ss-cart';
+
+function loadItems(): Map<string, number> {
+  if (typeof window === 'undefined') return new Map();
+  try {
+    const raw = window.localStorage.getItem(STORAGE_KEY);
+    if (!raw) return new Map();
+    const obj = JSON.parse(raw) as Record<string, number>;
+    return new Map(Object.entries(obj));
+  } catch {
+    return new Map();
+  }
+}
+
 export function CartProvider({ children }: { children: ReactNode }) {
   const [items, setItems] = useState<Map<string, number>>(new Map());
   const [isOpen, setIsOpen] = useState(false);
 
-  const add = useCallback((id: string) => {
+  // Hydrate from localStorage after mount (keeps SSR markup deterministic).
+  useEffect(() => {
+    setItems(loadItems());
+  }, []);
+
+  // Persist on every change.
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    try {
+      window.localStorage.setItem(STORAGE_KEY, JSON.stringify(Object.fromEntries(items)));
+    } catch {
+      /* ignore quota / privacy-mode errors */
+    }
+  }, [items]);
+
+  const add = useCallback((id: string, qty = 1) => {
     setItems((prev) => {
       const next = new Map(prev);
-      next.set(id, (next.get(id) || 0) + 1);
+      next.set(id, (next.get(id) || 0) + qty);
       return next;
     });
     setIsOpen(true);
@@ -50,6 +81,16 @@ export function CartProvider({ children }: { children: ReactNode }) {
     });
   }, []);
 
+  const remove = useCallback((id: string) => {
+    setItems((prev) => {
+      const next = new Map(prev);
+      next.delete(id);
+      return next;
+    });
+  }, []);
+
+  const clear = useCallback(() => setItems(new Map()), []);
+
   const state = useMemo<CartState>(() => {
     const rows = [...items.entries()].flatMap(([id, qty]) => {
       const product = PRODUCTS.find((p) => p.id === id);
@@ -69,10 +110,12 @@ export function CartProvider({ children }: { children: ReactNode }) {
       add,
       inc,
       dec,
+      remove,
+      clear,
       open: () => setIsOpen(true),
       close: () => setIsOpen(false),
     };
-  }, [items, isOpen, add, inc, dec]);
+  }, [items, isOpen, add, inc, dec, remove, clear]);
 
   return <CartContext.Provider value={state}>{children}</CartContext.Provider>;
 }
