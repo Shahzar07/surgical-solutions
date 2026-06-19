@@ -1,9 +1,9 @@
 const ITEMS = [
-  'Free P&P on UK orders over £100',
-  'NHS & framework supplier',
-  'Same-day dispatch before 14:00',
-  'ISO 13485 certified',
-  'Bespoke instrument design available',
+  'Supplying the NHS & private healthcare sector',
+  'Single-use instruments in boxes of 10',
+  'Cleanroom-packed & fully traceable',
+  'Bespoke procedure packs to your spec',
+  'Dermatology · ENT · General Surgery · Gynaecology',
 ];
 
 export function AnnouncementBar() {

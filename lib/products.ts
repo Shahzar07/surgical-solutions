@@ -164,28 +164,78 @@ export const ART: Record<string, string> = {
     </g>
     <path d="M50 75 Q90 72 130 72" stroke="rgba(255,255,255,0.7)" stroke-width="1.5" fill="none"/>
   </svg>`,
+
+  suture: `<svg class="instrument" viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg">${CHROME_DEFS}
+    <path d="M20 180 Q60 140 100 150 Q140 160 170 130 Q190 115 200 95" fill="none" stroke="#2a3236" stroke-width="2.2" stroke-linecap="round"/>
+    <path d="M20 180 Q60 140 100 150 Q140 160 170 130 Q190 115 200 95" fill="none" stroke="rgba(255,255,255,0.35)" stroke-width="0.6" stroke-linecap="round"/>
+    <path d="M28 175 L24 182" stroke="rgba(0,0,0,0.4)" stroke-width="1"/>
+    <path d="M200 95 A40 40 0 1 1 145 130" fill="none" stroke="url(#chrome-h)" stroke-width="6" stroke-linecap="round"/>
+    <path d="M200 95 A40 40 0 1 1 145 130" fill="none" stroke="rgba(40,48,52,0.6)" stroke-width="6.5" stroke-linecap="round" opacity="0.3"/>
+    <circle cx="145" cy="130" r="2.5" fill="#2a3236"/>
+    <circle cx="200" cy="95" r="6" fill="#2a3236"/>
+    <circle cx="200" cy="95" r="3.5" fill="#1F6B6B"/>
+    <path d="M180 60 A40 40 0 0 1 220 105" fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="1.2"/>
+  </svg>`,
+
+  gloves: `<svg class="instrument" viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg">${CHROME_DEFS}
+    <g transform="rotate(-12 80 140)">
+      <path d="M50 200 L50 130 Q50 120 58 120 L58 80 Q58 72 66 72 Q74 72 74 80 L74 116 Q74 110 82 110 Q90 110 90 118 L90 110 Q90 102 98 102 Q106 102 106 110 L106 120 Q106 114 114 114 Q122 114 122 122 L122 175 Q122 200 100 200 Z" fill="#F6F1E6" stroke="#3a4146" stroke-width="0.8" stroke-linejoin="round"/>
+      <rect x="50" y="190" width="72" height="10" fill="rgba(14,42,71,0.15)"/>
+    </g>
+    <g transform="rotate(14 160 140)">
+      <path d="M118 200 L118 122 Q118 114 126 114 L126 110 Q126 102 134 102 Q142 102 142 110 L142 118 Q142 110 150 110 Q158 110 158 118 L158 80 Q158 72 166 72 Q174 72 174 80 L174 120 Q182 120 182 130 L182 200 Z" fill="#F0EBE0" stroke="#3a4146" stroke-width="0.8" stroke-linejoin="round"/>
+      <rect x="118" y="190" width="64" height="10" fill="rgba(14,42,71,0.15)"/>
+    </g>
+    <path d="M62 100 Q70 90 78 100" fill="none" stroke="rgba(255,255,255,0.8)" stroke-width="1"/>
+    <path d="M148 100 Q156 90 164 100" fill="none" stroke="rgba(255,255,255,0.7)" stroke-width="1"/>
+  </svg>`,
 };
+
+export type Category = 'Procedure Packs' | 'Singles' | 'Reusable';
+export type Specialty = 'Dermatology' | 'ENT' | 'General Surgery' | 'Gynaecology';
 
 export type Product = {
   id: string;
   sku: string;
   name: string;
-  cat: 'Singles' | 'Packs' | 'Consumables';
+  cat: Category;
+  specialty: Specialty;
   price: number;
   unit: string;
   badge: 'BEST SELLER' | 'NEW' | 'IN STOCK' | null;
   art: keyof typeof ART;
+  blurb: string;
 };
 
+export const CATEGORIES: Category[] = ['Procedure Packs', 'Singles', 'Reusable'];
+export const SPECIALTIES: Specialty[] = ['Dermatology', 'ENT', 'General Surgery', 'Gynaecology'];
+
 export const PRODUCTS: Product[] = [
-  { id: 'p1', sku: 'SS-FOR-ADS', name: 'Adson Tissue Forceps',         cat: 'Singles',     price: 4.50,  unit: 'pack of 10', badge: 'BEST SELLER', art: 'forceps' },
-  { id: 'p2', sku: 'SS-SCL-15',  name: 'Disposable Scalpel No.15',     cat: 'Singles',     price: 2.20,  unit: 'each',       badge: null,          art: 'scalpel' },
-  { id: 'p3', sku: 'SS-PCK-MNR', name: 'Minor Surgery Procedure Pack', cat: 'Packs',       price: 18.00, unit: 'sterile',    badge: 'NEW',         art: 'pack' },
-  { id: 'p4', sku: 'SS-PCK-ENT', name: 'ENT Examination Kit',          cat: 'Packs',       price: 32.00, unit: 'sterile',    badge: null,          art: 'speculum' },
-  { id: 'p5', sku: 'SS-TRY-SUT', name: 'Sterile Suture Tray',          cat: 'Packs',       price: 24.50, unit: 'tray',       badge: null,          art: 'tray' },
-  { id: 'p6', sku: 'SS-PUN-4MM', name: 'Skin Biopsy Punch 4mm',        cat: 'Singles',     price: 3.80,  unit: 'box of 10',  badge: null,          art: 'punch' },
-  { id: 'p7', sku: 'SS-GWN-STR', name: 'Sterile Surgical Gown — L',    cat: 'Consumables', price: 6.40,  unit: 'each',       badge: 'IN STOCK',    art: 'gown' },
-  { id: 'p8', sku: 'SS-IOD-PRP', name: 'Iodine Skin Prep 30ml',        cat: 'Consumables', price: 4.20,  unit: 'bottle',     badge: null,          art: 'iodine' },
+  // ── Single-use instruments — supplied sterile, in boxes of 10 ──────────────
+  { id: 'p1',  sku: 'SS-FOR-ADS', name: 'Adson Tissue Forceps',          cat: 'Singles',         specialty: 'Dermatology',     price: 4.50,  unit: 'box of 10',       badge: 'BEST SELLER', art: 'forceps',  blurb: 'Fine-toothed single-use forceps for atraumatic tissue handling during excision and closure.' },
+  { id: 'p2',  sku: 'SS-SCL-15',  name: 'Disposable Scalpel No.15',      cat: 'Singles',         specialty: 'General Surgery', price: 2.20,  unit: 'box of 10',       badge: null,          art: 'scalpel',  blurb: 'Stainless-steel No.15 blade on a moulded handle — sterile, single patient use.' },
+  { id: 'p6',  sku: 'SS-PUN-4MM', name: 'Skin Biopsy Punch 4mm',         cat: 'Singles',         specialty: 'Dermatology',     price: 3.80,  unit: 'box of 10',       badge: null,          art: 'punch',    blurb: 'Razor-sharp 4mm cutting cylinder for clean, full-thickness dermal biopsies.' },
+  { id: 'p9',  sku: 'SS-SPC-NAS', name: 'Thudichum Nasal Speculum',      cat: 'Singles',         specialty: 'ENT',             price: 5.20,  unit: 'box of 10',       badge: null,          art: 'speculum', blurb: 'Lightweight single-use nasal speculum for clear anterior rhinoscopy.' },
+  { id: 'p10', sku: 'SS-SUT-30N', name: 'Suture Pack 3/0 Nylon',         cat: 'Singles',         specialty: 'General Surgery', price: 6.90,  unit: 'box of 10',       badge: null,          art: 'suture',   blurb: 'Sterile 3/0 non-absorbable nylon suture with reverse-cutting needle, individually pouched.' },
+  { id: 'p11', sku: 'SS-GLV-LTX', name: 'Sterile Latex Surgeon Gloves',  cat: 'Singles',         specialty: 'General Surgery', price: 3.40,  unit: 'box of 10 pairs', badge: 'IN STOCK',    art: 'gloves',   blurb: 'Powder-free, anatomically shaped sterile latex gloves with a secure beaded cuff.' },
+  { id: 'p7',  sku: 'SS-GWN-STR', name: 'Sterile Surgical Gown — L',     cat: 'Singles',         specialty: 'General Surgery', price: 6.40,  unit: 'each',            badge: null,          art: 'gown',     blurb: 'Reinforced single-use sterile gown, AAMI Level 3, size large.' },
+  { id: 'p8',  sku: 'SS-IOD-PRP', name: 'Iodine Skin Prep 30ml',         cat: 'Singles',         specialty: 'General Surgery', price: 4.20,  unit: 'bottle',          badge: null,          art: 'iodine',   blurb: '10% povidone-iodine antiseptic skin preparation, 30ml single-patient bottle.' },
+  { id: 'p12', sku: 'SS-SPC-GYN', name: 'Disposable Vaginal Speculum',   cat: 'Singles',         specialty: 'Gynaecology',     price: 7.50,  unit: 'box of 10',       badge: null,          art: 'speculum', blurb: 'Clear single-use speculum with smooth bills for comfortable gynaecological examination.' },
+
+  // ── Procedure packs — sterile, cleanroom-assembled, fully traceable ────────
+  { id: 'p3',  sku: 'SS-PCK-MNR', name: 'Minor Surgery Procedure Pack',  cat: 'Procedure Packs', specialty: 'General Surgery', price: 18.00, unit: 'sterile pack',    badge: 'NEW',         art: 'pack',     blurb: 'A complete sterile field for minor ops — drape, instruments, gauze and disposables in one tray.' },
+  { id: 'p13', sku: 'SS-PCK-DRM', name: 'Dermatology Excision Pack',     cat: 'Procedure Packs', specialty: 'Dermatology',     price: 21.00, unit: 'sterile pack',    badge: 'BEST SELLER', art: 'pack',     blurb: 'Everything for a routine skin excision: blade, forceps, scissors, needle holder and dressing.' },
+  { id: 'p4',  sku: 'SS-PCK-ENT', name: 'ENT Examination Pack',          cat: 'Procedure Packs', specialty: 'ENT',             price: 32.00, unit: 'sterile pack',    badge: null,          art: 'speculum', blurb: 'Speculae, applicators and consumables laid out for efficient ENT clinic examination.' },
+  { id: 'p5',  sku: 'SS-TRY-SUT', name: 'Suture Tray Pack',              cat: 'Procedure Packs', specialty: 'General Surgery', price: 24.50, unit: 'sterile tray',    badge: null,          art: 'tray',     blurb: 'Pre-assembled suturing tray with needle holder, scissors, forceps and gauze.' },
+  { id: 'p14', sku: 'SS-PCK-GYN', name: 'Gynaecology Examination Pack',  cat: 'Procedure Packs', specialty: 'Gynaecology',     price: 19.50, unit: 'sterile pack',    badge: null,          art: 'pack',     blurb: 'Speculum, swabs, drape and disposables packed for a complete gynae examination.' },
+
+  // ── Reusable instruments — stainless steel, autoclavable ───────────────────
+  { id: 'p15', sku: 'SS-RUS-ADS', name: 'Reusable Adson Forceps',        cat: 'Reusable',        specialty: 'Dermatology',     price: 12.00, unit: 'each',            badge: null,          art: 'forceps',  blurb: 'German stainless-steel Adson forceps, fully autoclavable for repeat theatre use.' },
+  { id: 'p16', sku: 'SS-RUS-TRY', name: 'Reusable Iris Scissors Set',    cat: 'Reusable',        specialty: 'General Surgery', price: 28.00, unit: 'each',            badge: null,          art: 'tray',     blurb: 'Precision-ground reusable iris scissors and needle holder, supplied on a sterilisable tray.' },
+  { id: 'p17', sku: 'SS-RUS-NAS', name: 'Reusable Nasal Speculum',       cat: 'Reusable',        specialty: 'ENT',             price: 15.50, unit: 'each',            badge: null,          art: 'speculum', blurb: 'Mirror-polished reusable Thudichum speculum, built to withstand repeated sterilisation.' },
 ];
 
 export const fmtGBP = (n: number): string => '£' + n.toFixed(2);
+
+export const productsByCategory = (cat: Category): Product[] =>
+  PRODUCTS.filter((p) => p.cat === cat);

@@ -1,20 +1,37 @@
 'use client';
 
+import Link from 'next/link';
+import { useState } from 'react';
 import { useCart } from '@/lib/cart';
+
+const PRODUCT_LINKS = [
+  { href: '/procedure-packs', label: 'Procedure Packs' },
+  { href: '/singles', label: 'Single Instruments' },
+  { href: '/reusable', label: 'Reusable Instruments' },
+];
 
 export function Header() {
   const { count, open } = useCart();
+  const [menuOpen, setMenuOpen] = useState(false);
+  const close = () => setMenuOpen(false);
 
   return (
     <header className="hdr">
       <div className="hdr-inner">
         <nav className="hdr-nav">
-          <a href="#catalogue" className="has-caret">Catalogue</a>
-          <a href="#packs">Procedure Packs</a>
-          <a href="#shop">Shop</a>
+          <Link href="/about">About</Link>
+          <div className="hdr-drop">
+            <button type="button" className="hdr-drop-trigger has-caret">Products</button>
+            <div className="hdr-drop-menu">
+              {PRODUCT_LINKS.map((l) => (
+                <Link key={l.href} href={l.href}>{l.label}</Link>
+              ))}
+            </div>
+          </div>
+          <Link href="/contact">Contact</Link>
         </nav>
 
-        <a className="brand brand-video" href="#" aria-label="Surgical Solutions home">
+        <Link className="brand brand-video" href="/" aria-label="Surgical Solutions home" onClick={close}>
           <video
             className="brand-video-el"
             src="/logo.webm"
@@ -25,7 +42,7 @@ export function Header() {
             preload="auto"
             aria-hidden="true"
           />
-        </a>
+        </Link>
 
         <div className="hdr-right">
           <button className="cart-pill" onClick={open} aria-label="Open cart">
@@ -34,7 +51,24 @@ export function Header() {
             </svg>
             <span className="label-text">Cart</span> <span className="count">{count}</span>
           </button>
+          <button
+            className={`hdr-burger${menuOpen ? ' is-open' : ''}`}
+            onClick={() => setMenuOpen((o) => !o)}
+            aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+            aria-expanded={menuOpen}
+          >
+            <span /><span /><span />
+          </button>
         </div>
+      </div>
+
+      <div className={`hdr-mobile${menuOpen ? ' open' : ''}`}>
+        <Link href="/" onClick={close}>Home</Link>
+        <Link href="/about" onClick={close}>About</Link>
+        <Link href="/procedure-packs" onClick={close}>Procedure Packs</Link>
+        <Link href="/singles" onClick={close}>Single Instruments</Link>
+        <Link href="/reusable" onClick={close}>Reusable Instruments</Link>
+        <Link href="/contact" onClick={close}>Contact</Link>
       </div>
     </header>
   );

@@ -7,14 +7,14 @@ export function FinalCTA() {
         </div>
         <div className="cta-mid">
           <p className="eyebrow" style={{ color: 'rgba(246,241,230,.55)' }}>Get Started</p>
-          <h3>Place Your Next Order<br />in Under Two Minutes.</h3>
+          <h3>Let&apos;s Build Your<br />Pack List Together.</h3>
           <p>
-            New customer? Open a trade account and we&apos;ll match your usual pack list,
-            share trade pricing and arrange a free sample box.
+            New customer? Get in touch and we&apos;ll match your usual instruments, quote trade
+            pricing and design a bespoke procedure pack to your exact specification.
           </p>
           <div style={{ display: 'flex', gap: 14, justifyContent: 'center', flexWrap: 'wrap' }}>
-            <a href="#" className="btn btn-primary btn-on-dark">Open Trade Account</a>
-            <a href="#" className="btn-link" style={{ color: 'var(--c-on-prim)' }}>
+            <a href="/contact" className="btn btn-primary btn-on-dark">Contact the Team</a>
+            <a href="tel:+441753299353" className="btn-link" style={{ color: 'var(--c-on-prim)' }}>
               +44 (0) 1753 299 353 →
             </a>
           </div>
