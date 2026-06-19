@@ -1,21 +1,18 @@
 'use client';
 
-import { ART, fmtGBP } from '@/lib/products';
+import Link from 'next/link';
+import { productImage, fmtGBP } from '@/lib/products';
 import { useCart } from '@/lib/cart';
 
-function thumbArt(art: string): string {
-  return (ART[art] || '').replace('class="instrument"', '');
-}
-
 export function CartDrawer() {
-  const { isOpen, close, rows, count, subtotal, shipping, total, inc, dec } = useCart();
+  const { isOpen, close, rows, count, subtotal, shipping, total, inc, dec, remove } = useCart();
 
   return (
     <>
       <div className={`drawer-mask${isOpen ? ' open' : ''}`} onClick={close} />
       <aside className={`drawer${isOpen ? ' open' : ''}`} aria-hidden={!isOpen}>
         <div className="drawer-hd">
-          <h3>Your Cart</h3>
+          <h3>Your Cart {count > 0 && <span className="drawer-count">({count})</span>}</h3>
           <button className="iconbtn is-ghost" onClick={close} aria-label="Close cart">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
               <path d="M6 6l12 12M18 6l-12 12" />
@@ -31,13 +28,18 @@ export function CartDrawer() {
               <span style={{ opacity: 0.65, fontSize: 12 }}>
                 Browse the catalogue to add products.
               </span>
+              <div style={{ marginTop: 22 }}>
+                <Link href="/products" className="btn btn-ghost" onClick={close}>Browse Catalogue</Link>
+              </div>
             </div>
           ) : (
             rows.map(({ product: p, qty, line }) => (
               <div key={p.id} className="drawer-row">
-                <div className="thumb" dangerouslySetInnerHTML={{ __html: thumbArt(p.art) }} />
+                <Link href={`/products/${p.id}`} className="thumb" onClick={close}>
+                  <img src={productImage(p, 200)} alt={p.name} />
+                </Link>
                 <div>
-                  <div className="n">{p.name}</div>
+                  <Link href={`/products/${p.id}`} className="n" onClick={close}>{p.name}</Link>
                   <div className="m">
                     <span>{p.cat} · {p.unit}</span>
                     <span className="qty">
@@ -46,6 +48,7 @@ export function CartDrawer() {
                       <button onClick={() => inc(p.id)} aria-label="Increase">+</button>
                     </span>
                   </div>
+                  <button className="drawer-remove" onClick={() => remove(p.id)}>Remove</button>
                 </div>
                 <div className="price">{fmtGBP(line)}</div>
               </div>
@@ -67,7 +70,8 @@ export function CartDrawer() {
               <span>Total</span>
               <span>{fmtGBP(total)}</span>
             </div>
-            <button className="btn btn-primary">Proceed to Checkout</button>
+            <Link href="/checkout" className="btn btn-primary" onClick={close}>Proceed to Checkout</Link>
+            <Link href="/cart" className="btn btn-ghost" onClick={close} style={{ width: '100%', justifyContent: 'center', marginTop: 10 }}>View Full Cart</Link>
             <div className="note">Trade accounts auto-apply pricing</div>
           </div>
         )}

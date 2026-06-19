@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { useCart } from '@/lib/cart';
 
 export function Header() {
@@ -9,12 +10,12 @@ export function Header() {
     <header className="hdr">
       <div className="hdr-inner">
         <nav className="hdr-nav">
-          <a href="#catalogue" className="has-caret">Catalogue</a>
-          <a href="#packs">Procedure Packs</a>
-          <a href="#shop">Shop</a>
+          <Link href="/products" className="has-caret">Catalogue</Link>
+          <a href="/#bespoke">Procedure Packs</a>
+          <Link href="/products">Shop</Link>
         </nav>
 
-        <a className="brand brand-video" href="#" aria-label="Surgical Solutions home">
+        <Link className="brand brand-video" href="/" aria-label="Surgical Solutions home">
           <video
             className="brand-video-el"
             src="/logo.webm"
@@ -25,7 +26,7 @@ export function Header() {
             preload="auto"
             aria-hidden="true"
           />
-        </a>
+        </Link>
 
         <div className="hdr-right">
           <button className="cart-pill" onClick={open} aria-label="Open cart">

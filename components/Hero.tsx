@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
 
@@ -21,61 +22,14 @@ export function Hero() {
   const bannerY = useTransform(scrollYProgress, [0, 1], ['0%', '-12%']);
 
   return (
-    <section className="hero" ref={sectionRef}>
+    <section className="hero hero-banner-first" ref={sectionRef}>
       <div className="wrap">
-        <div className="hero-top">
-          <motion.p
-            className="eyebrow hero-eyebrow"
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: EASE }}
-          >
-            Surgical Instruments · Procedure Packs · Consumables
-          </motion.p>
-
-          {/* Per-line fade-up (no overflow clip-mask — avoids the descender
-              clipping that the mask reveal introduced previously). */}
-          <h1 className="display">
-            {HEADLINE_LINES.map((line, i) => (
-              <motion.span
-                key={i}
-                className="hero-headline-line"
-                initial={{ opacity: 0, y: 24 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, ease: EASE, delay: 0.12 + i * 0.1 }}
-              >
-                {line}
-              </motion.span>
-            ))}
-          </h1>
-
-          <motion.p
-            className="hero-sub"
-            initial={{ opacity: 0, y: 18 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: EASE, delay: 0.5 }}
-          >
-            For 20&nbsp;years we&apos;ve supplied UK hospitals, surgeries and independents
-            with single-use instruments, bespoke procedure packs and theatre consumables
-            — built to clinical spec and delivered on time.
-          </motion.p>
-
-          <motion.div
-            className="hero-cta"
-            initial={{ opacity: 0, y: 14 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, ease: EASE, delay: 0.62 }}
-          >
-            <a href="#shop" className="btn btn-primary">Shop the Catalogue</a>
-            <a href="#bespoke" className="btn-link">Request a Bespoke Pack →</a>
-          </motion.div>
-        </div>
-
+        {/* Banner first — the cinematic image leads the page. */}
         <motion.div
           className="hero-banner"
-          initial={{ opacity: 0, y: 48, scale: 0.97 }}
+          initial={{ opacity: 0, y: 24, scale: 0.98 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
-          transition={{ duration: 1.1, ease: EASE, delay: 0.35 }}
+          transition={{ duration: 1.0, ease: EASE }}
         >
           <motion.img
             style={{ y: bannerY }}
@@ -87,7 +41,7 @@ export function Hero() {
               className="hero-chip"
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, ease: EASE, delay: 0.95 }}
+              transition={{ duration: 0.7, ease: EASE, delay: 0.5 }}
             >
               <strong>ISO 13485</strong>
               <span>Certified Quality</span>
@@ -96,22 +50,72 @@ export function Hero() {
               className="hero-chip"
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, ease: EASE, delay: 1.05 }}
+              transition={{ duration: 0.7, ease: EASE, delay: 0.6 }}
             >
               <strong>20+ Years</strong>
               <span>800+ UK Clinics Served</span>
             </motion.div>
           </div>
         </motion.div>
-      </div>
 
-      <motion.div
-        className="hero-watermark"
-        aria-hidden="true"
-        style={{ y: watermarkY, opacity: watermarkOpacity }}
-      >
-        surgical&nbsp;solutions
-      </motion.div>
+        <div className="hero-textwrap">
+          <motion.div
+            className="hero-watermark"
+            aria-hidden="true"
+            style={{ y: watermarkY, opacity: watermarkOpacity }}
+          >
+            surgical&nbsp;solutions
+          </motion.div>
+
+          <div className="hero-top">
+            <motion.p
+              className="eyebrow hero-eyebrow"
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, ease: EASE, delay: 0.15 }}
+            >
+              Surgical Instruments · Procedure Packs · Consumables
+            </motion.p>
+
+            {/* Per-line fade-up (no overflow clip-mask — avoids the descender
+                clipping that the mask reveal introduced previously). */}
+            <h1 className="display">
+              {HEADLINE_LINES.map((line, i) => (
+                <motion.span
+                  key={i}
+                  className="hero-headline-line"
+                  initial={{ opacity: 0, y: 24 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, ease: EASE, delay: 0.25 + i * 0.1 }}
+                >
+                  {line}
+                </motion.span>
+              ))}
+            </h1>
+
+            <motion.p
+              className="hero-sub"
+              initial={{ opacity: 0, y: 18 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: EASE, delay: 0.6 }}
+            >
+              For 20&nbsp;years we&apos;ve supplied UK hospitals, surgeries and independents
+              with single-use instruments, bespoke procedure packs and theatre consumables
+              — built to clinical spec and delivered on time.
+            </motion.p>
+
+            <motion.div
+              className="hero-cta"
+              initial={{ opacity: 0, y: 14 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, ease: EASE, delay: 0.72 }}
+            >
+              <Link href="/products" className="btn btn-primary">Shop the Catalogue</Link>
+              <a href="#bespoke" className="btn-link">Request a Bespoke Pack →</a>
+            </motion.div>
+          </div>
+        </div>
+      </div>
     </section>
   );
 }
