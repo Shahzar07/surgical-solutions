@@ -311,11 +311,44 @@ a { color: inherit; text-decoration: none; }
   border-top: 1px solid var(--c-line-soft);
   border-bottom: 1px solid var(--c-line-soft);
   padding: 22px 0;
-  display: flex; align-items: center; justify-content: space-between; gap: 32px;
+  display: flex; align-items: center; gap: 40px;
   font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--c-muted);
 }
-.trust-logos { display: flex; gap: 48px; align-items: center; flex-wrap: wrap; opacity: .8; }
-.trust-logos span { font-weight: 500; }
+.trust-label { flex: none; font-weight: 600; }
+
+/* Edge-fading marquee — logos scroll and dissolve into the background at both ends */
+.trust-marquee {
+  position: relative;
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 12%, #000 88%, transparent);
+          mask-image: linear-gradient(to right, transparent, #000 12%, #000 88%, transparent);
+}
+.trust-track {
+  display: flex;
+  width: max-content;
+  align-items: center;
+  animation: trust-scroll 32s linear infinite;
+  will-change: transform;
+}
+.trust-marquee:hover .trust-track { animation-play-state: paused; }
+.trust-logo {
+  flex: none;
+  margin-right: 56px;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.16em;
+  color: var(--c-ink);
+  white-space: nowrap;
+}
+@keyframes trust-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .trust-track { animation: none; }
+}
 
 /* ── Editorial block (cream slab) ──────────────────────────────────────── */
 .slab {
@@ -1032,8 +1065,10 @@ a.prod-body:hover .prod-name { color: var(--c-primary); }
   .chat-fab { right: 18px; bottom: 18px; width: 54px; height: 54px; }
   .chat-panel { right: 12px; left: 12px; width: auto; bottom: 82px; height: min(70dvh, 460px); }
 
-  .trust { flex-direction: column; gap: 16px; padding: 20px 0; text-align: center; }
-  .trust-logos { gap: 20px 28px; justify-content: center; }
+  .trust { flex-direction: column; gap: 14px; padding: 20px 0; text-align: center; }
+  .trust-label { letter-spacing: 0.12em; }
+  .trust-marquee { width: 100%; }
+  .trust-logo { margin-right: 36px; font-size: 12px; }
 
   .prod-grid { grid-template-columns: 1fr; gap: 16px; }
   .cats { grid-template-columns: 1fr; gap: 14px; }
