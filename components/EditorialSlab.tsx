@@ -14,7 +14,7 @@ export function EditorialSlab() {
           team obsessed with consistency, traceability and the unglamorous logistics that
           keep your list running.
         </p>
-        <a href="#about" className="btn btn-primary">About Surgical Solutions</a>
+        <a href="/contact" className="btn btn-primary">About Surgical Solutions</a>
 
         <div className="slab-meta">
           <div className="stat"><strong>20+</strong><span>Years Supplying</span></div>
