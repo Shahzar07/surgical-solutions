@@ -13,8 +13,8 @@ export function FinalCTA() {
             share trade pricing and arrange a free sample box.
           </p>
           <div style={{ display: 'flex', gap: 14, justifyContent: 'center', flexWrap: 'wrap' }}>
-            <a href="#" className="btn btn-primary btn-on-dark">Open Trade Account</a>
-            <a href="#" className="btn-link" style={{ color: 'var(--c-on-prim)' }}>
+            <a href="/contact" className="btn btn-primary btn-on-dark">Open Trade Account</a>
+            <a href="tel:+441753299353" className="btn-link" style={{ color: 'var(--c-on-prim)' }}>
               +44 (0) 1753 299 353 →
             </a>
           </div>

@@ -18,8 +18,8 @@ export function ExpertSection() {
               single UK warehouse — so what arrives on your shelf is exactly what was signed off.
             </p>
             <div className="row">
-              <a href="#about" className="btn btn-primary btn-on-dark">Meet the Team</a>
-              <a href="#bespoke-form" className="btn-link" style={{ color: 'var(--c-on-prim)' }}>
+              <a href="/contact" className="btn btn-primary btn-on-dark">Meet the Team</a>
+              <a href="/contact" className="btn-link" style={{ color: 'var(--c-on-prim)' }}>
                 Talk to a Specialist →
               </a>
             </div>

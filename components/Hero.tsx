@@ -66,8 +66,8 @@ export function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease: EASE, delay: 0.62 }}
           >
-            <a href="#shop" className="btn btn-primary">Shop the Catalogue</a>
-            <a href="#bespoke" className="btn-link">Request a Bespoke Pack →</a>
+            <a href="/shop" className="btn btn-primary">Shop the Catalogue</a>
+            <a href="/procedure-packs" className="btn-link">Request a Bespoke Pack →</a>
           </motion.div>
         </div>
 

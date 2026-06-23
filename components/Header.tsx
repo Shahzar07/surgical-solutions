@@ -1,20 +1,41 @@
 'use client';
 
+import Link from 'next/link';
+import { useState } from 'react';
 import { useCart } from '@/lib/cart';
+
+const NAV = [
+  { href: '/shop', label: 'Shop' },
+  { href: '/procedure-packs', label: 'Procedure Packs' },
+  { href: '/singles', label: 'Singles' },
+  { href: '/contact', label: 'Contact' },
+];
 
 export function Header() {
   const { count, open } = useCart();
+  const [menu, setMenu] = useState(false);
 
   return (
     <header className="hdr">
       <div className="hdr-inner">
+        <button
+          className="hdr-burger"
+          aria-label="Open menu"
+          aria-expanded={menu}
+          onClick={() => setMenu((m) => !m)}
+        >
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round">
+            {menu ? <path d="M6 6l12 12M18 6l-12 12" /> : <><path d="M3 6h18" /><path d="M3 12h18" /><path d="M3 18h18" /></>}
+          </svg>
+        </button>
+
         <nav className="hdr-nav">
-          <a href="#catalogue" className="has-caret">Catalogue</a>
-          <a href="#packs">Procedure Packs</a>
-          <a href="#shop">Shop</a>
+          {NAV.map((n) => (
+            <Link key={n.href} href={n.href}>{n.label}</Link>
+          ))}
         </nav>
 
-        <a className="brand brand-video" href="#" aria-label="Surgical Solutions home">
+        <Link className="brand brand-video" href="/" aria-label="Surgical Solutions home">
           <video
             className="brand-video-el"
             src="/logo.webm"
@@ -25,7 +46,7 @@ export function Header() {
             preload="auto"
             aria-hidden="true"
           />
-        </a>
+        </Link>
 
         <div className="hdr-right">
           <button className="cart-pill" onClick={open} aria-label="Open cart">
@@ -36,6 +57,14 @@ export function Header() {
           </button>
         </div>
       </div>
+
+      {menu && (
+        <nav className="hdr-mobile" onClick={() => setMenu(false)}>
+          {NAV.map((n) => (
+            <Link key={n.href} href={n.href}>{n.label}</Link>
+          ))}
+        </nav>
+      )}
     </header>
   );
 }

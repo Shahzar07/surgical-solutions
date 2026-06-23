@@ -1,23 +1,23 @@
-'use client';
+import Link from 'next/link';
+import { CONSUMABLES } from '@/lib/catalog';
+import { ProductCard } from '@/components/ProductCard';
 
-import { useState } from 'react';
-import { ART, PRODUCTS, fmtGBP, type Product } from '@/lib/products';
-import { useCart } from '@/lib/cart';
-
-const FILTERS = ['All', 'Singles', 'Packs', 'Consumables'] as const;
-type Filter = (typeof FILTERS)[number];
-
-function badgeClass(badge: Product['badge']): string {
-  if (badge === 'IN STOCK') return 'is-stock';
-  if (badge === 'NEW') return 'is-new';
-  return '';
-}
+// A curated set of best-sellers shown on the homepage.
+const FEATURED = [
+  'biogel-surgical-gloves-sterile-latex-powder-free',
+  'stiefel-biopsy-punch-box-of-10',
+  'swann-morton-sterile-disposable-scalpel-no-15-blade-with-polystyrene-handle-x-10',
+  'sterile-dressing-packs-box-of-20',
+  'clinell-antibacterial-hand-wipes',
+  'diamond-cardiology-stethoscope',
+  'eclipse-sterile-theatre-gowns-x28',
+  '10-x-10-non-woven-sterile-gauze-swabs-single-pack-of-10',
+];
 
 export function Products() {
-  const [filter, setFilter] = useState<Filter>('All');
-  const { add } = useCart();
-
-  const visible = PRODUCTS.filter((p) => filter === 'All' || p.cat === filter);
+  const picks = FEATURED.map((slug) => CONSUMABLES.find((p) => p.slug === slug)).filter(
+    (p): p is NonNullable<typeof p> => Boolean(p),
+  );
 
   return (
     <section className="section" id="shop">
@@ -27,41 +27,17 @@ export function Products() {
             <p className="eyebrow">Best Sellers</p>
             <h2 className="display">Ready to Ship.</h2>
           </div>
-          <div style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
-            {FILTERS.map((f) => (
-              <button
-                key={f}
-                className={`filter-chip${filter === f ? ' is-active' : ''}`}
-                onClick={() => setFilter(f)}
-              >
-                {f}
-              </button>
-            ))}
-          </div>
+          <Link href="/shop" className="btn btn-ghost">Shop All Consumables</Link>
         </div>
 
         <div className="prod-grid">
-          {visible.map((p) => (
-            <article key={p.id} className="prod">
-              <div className="prod-media">
-                {p.badge && <span className={`prod-badge ${badgeClass(p.badge)}`}>{p.badge}</span>}
-                <div dangerouslySetInnerHTML={{ __html: ART[p.art] || '' }} />
-                <button className="prod-quick" onClick={() => add(p.id)}>+ Quick Add</button>
-              </div>
-              <div className="prod-body">
-                <span className="prod-cat">{p.cat} · {p.sku}</span>
-                <span className="prod-name">{p.name}</span>
-                <div className="prod-foot">
-                  <span className="prod-price">{fmtGBP(p.price)}</span>
-                  <span className="prod-unit">{p.unit}</span>
-                </div>
-              </div>
-            </article>
+          {picks.map((p) => (
+            <ProductCard key={p.slug} p={p} />
           ))}
         </div>
 
         <div style={{ textAlign: 'center', marginTop: 48 }}>
-          <a href="#shop" className="btn btn-ghost">View Full Catalogue (240+ products)</a>
+          <Link href="/shop" className="btn btn-ghost">View Full Catalogue ({CONSUMABLES.length} products)</Link>
         </div>
       </div>
     </section>
